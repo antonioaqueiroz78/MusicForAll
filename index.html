@@ -9,12 +9,16 @@
   </style>
 </head>
 <body>
-  <iframe id="ytplayer" src="" allow="autoplay" allowfullscreen></iframe>
+  <iframe id="ytplayer" src="" 
+    allow="autoplay; fullscreen; encrypted-media" 
+    allowfullscreen 
+    sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation">
+  </iframe>
   <script>
     const params = new URLSearchParams(location.search);
     const videoId = params.get('v') || 'dQw4w9WgXcQ';
     document.getElementById('ytplayer').src =
-      `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0&modestbranding=1`;
+      `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0&modestbranding=1&referrerPolicy=no-referrer-when-downgrade`;
   </script>
 </body>
 </html>
