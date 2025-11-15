@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <title>MusicForAll – Player</title>
+  <style>
+    html,body{margin:0;padding:0;height:100%;background:#000;}
+    iframe{width:100%;height:100%;border:0;}
+  </style>
+</head>
+<body>
+  <iframe id="ytplayer" src="" allowfullscreen></iframe>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const videoId = params.get('v') || 'dQw4w9WgXcQ';
+    document.getElementById('ytplayer').src =
+      `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+  </script>
+</body>
+</html>
