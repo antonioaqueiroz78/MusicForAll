@@ -9,16 +9,17 @@
   </style>
 </head>
 <body>
-  <iframe id="ytplayer" src="" 
-    allow="autoplay; fullscreen; encrypted-media" 
-    allowfullscreen 
-    sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation">
-  </iframe>
+  <iframe id="ytplayer" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
   <script>
     const params = new URLSearchParams(location.search);
     const videoId = params.get('v') || 'dQw4w9WgXcQ';
     document.getElementById('ytplayer').src =
-      `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0&modestbranding=1`;
+      `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&playsinline=1&rel=0&modestbranding=1&enablejsapi=1&widget_referrer=`;
+    // Força autoplay
+    setTimeout(() => {
+      const iframe = document.getElementById('ytplayer');
+      iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+    }, 3000);
   </script>
 </body>
 </html>
